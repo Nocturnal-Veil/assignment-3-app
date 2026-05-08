@@ -16,14 +16,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
   app:
-    image: node:18-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile     # <-- use your Dockerfile
     container_name: library-app-jenkins
-    working_dir: /app
-    volumes:
-      - ./backend:/app
-    command: sh -c "npm install && node index.js"
     ports:
       - "5001:5000"
     environment:
@@ -34,6 +31,5 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
 volumes:
   db_data_jenkins:
