@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const API = 'http://13.51.167.24:5000/api/members'
+const API = '/api/members'
 const empty = { name: '', email: '', phone: '', address: '' }
 
 export default function Members() {

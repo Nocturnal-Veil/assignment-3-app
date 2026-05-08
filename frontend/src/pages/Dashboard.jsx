@@ -6,9 +6,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://13.51.167.24:5000/api/books'),
-      axios.get('http://13.51.167.24:5000/api/members'),
-      axios.get('http://13.51.167.24:5000/api/borrows'),
+      axios.get('/api/books'),
+      axios.get('/api/members'),
+      axios.get('/api/borrows'),
     ]).then(([b, m, br]) => {
       const active = br.data.filter(r => r.status === 'borrowed').length
       setStats({ books: b.data.length, members: m.data.length, borrows: br.data.length, active })

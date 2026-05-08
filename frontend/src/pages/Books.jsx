@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const API = 'http://13.51.167.24:5000/api/books'
+const API = '/api/books'
 const empty = { title: '', author: '', genre: '', quantity: 1, published_year: '' }
 
 export default function Books() {

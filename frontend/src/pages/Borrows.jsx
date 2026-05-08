@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const API = 'http://13.51.167.24:5000/api/borrows'
+const API = '/api/borrows'
 
 export default function Borrows() {
   const [borrows, setBorrows] = useState([])
@@ -14,8 +14,8 @@ export default function Borrows() {
   const load = () => axios.get(API).then(r => setBorrows(r.data))
   useEffect(() => {
     load()
-    axios.get('http://13.51.167.24:5000/api/books').then(r => setBooks(r.data))
-    axios.get('http://13.51.167.24:5000/api/members').then(r => setMembers(r.data))
+    axios.get('/api/books').then(r => setBooks(r.data))
+    axios.get('/api/members').then(r => setMembers(r.data))
   }, [])
 
   const showToast = (msg, type = 'success') => {
